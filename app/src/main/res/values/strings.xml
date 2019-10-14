@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MCA</string>
+    <string name="tab_text_1">HOME</string>
+    <string name="tab_text_2">LIST</string>
+</resources>

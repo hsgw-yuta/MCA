@@ -1,4 +1,4 @@
-package com.example.mca.View
+package com.example.mca.View.View
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,13 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mca.R
+import com.example.mca.View.ViewAdapter
 import com.example.mca.View.data.RowData
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment: Fragment(){
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    val menu: ArrayList<String> = arrayListOf(
+        "ラジアン変換",
+        "進数変換",
+        "単位変換表",
+        "√変換",
+        "長さ変換",
+        "サブネットマスク",
+        "階乗計算")
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater.inflate(R.layout.fragment_main,container,false)
         return view
     }
@@ -23,11 +32,13 @@ class MainFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = recycler_list
-        val adapter = ViewAdapter(createDataList(), object : ViewAdapter.ListListener {
-            override fun onClickRow(tappedView: View, rowData: RowData) {
-                this@MainFragment.onClickRow(tappedView, rowData)
-            }
-        })
+        val adapter = ViewAdapter(
+            createDataList(),
+            object : ViewAdapter.ListListener {
+                override fun onClickRow(tappedView: View, rowData: RowData) {
+                    this@MainFragment.onClickRow(tappedView, rowData)
+                }
+            })
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
@@ -37,9 +48,9 @@ class MainFragment: Fragment(){
     // sampledata
     private fun createDataList(): List<RowData> {
         val dataList = mutableListOf<RowData>()
-        for (i in 0..49) {
+        for (i in 0.. menu.size-1) {
             val data: RowData = RowData().also {
-                it.title = "タイトル" + i + "だよ"
+                it.title = menu[i].toString()
             }
             dataList.add(data)
         }

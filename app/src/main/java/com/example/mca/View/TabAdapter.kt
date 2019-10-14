@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.mca.View.View.MainFragment
+import com.example.mca.View.View.SubFragment
 
 class TabAdapter(
     fm: FragmentManager, private val context: Context):
@@ -11,8 +13,10 @@ class TabAdapter(
 
     override fun getItem(position: Int): Fragment {
         when(position){
-            0 -> { return MainFragment() }
-            else ->  { return SubFragment() }
+            0 -> { return MainFragment()
+            }
+            else ->  { return SubFragment()
+            }
         }
     }
 

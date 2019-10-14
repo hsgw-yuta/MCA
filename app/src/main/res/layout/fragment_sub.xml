@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="100dp"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
         android:orientation="horizontal">
         <EditText
             android:id="@+id/result"
@@ -18,8 +20,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
+
             android:autofillHints="@string/result" />
         <Button
+            android:id="@+id/dell_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DEL"/>

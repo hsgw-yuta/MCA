@@ -1,8 +1,9 @@
-package com.example.mca.View
+package com.example.mca.View.View
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mca.R
+import com.example.mca.View.TabAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        pager.adapter = TabAdapter(supportFragmentManager,this)
+        pager.adapter = TabAdapter(supportFragmentManager, this)
 
         tab_layout.setupWithViewPager(pager)
 

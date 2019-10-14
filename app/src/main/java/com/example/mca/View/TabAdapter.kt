@@ -11,7 +11,7 @@ class TabAdapter(
 
     override fun getItem(position: Int): Fragment {
         when(position){
-            0 -> { return MainFragmet() }
+            0 -> { return MainFragment() }
             else ->  { return SubFragment() }
         }
     }
